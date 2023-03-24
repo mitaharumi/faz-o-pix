@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>faz o Pix</title>
+        <style>
+            div {
+                display: block;
+            }
+
+            #faz-pix {
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                background-color: #fff;
+                padding: 20px;
+                text-align: center;
+            }
+
+            #boot{
+                height: 700px;
+                width: 700px;
+                padding-top: 300px;
+                margin: auto;
+                display: block;
+                text-align: center;
+
+            }
+
+            #pix-qrcode {
+                height: 300px;
+                display: inline-block;
+                max-width: 100%;
+                margin-bottom: 3px;
+            }
+
+            #pix-copia {
+                padding: 8px;
+                background-color: #c4c4c4;
+                color: white;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                margin-bottom: 10px;
+                font-size: 25px;
+            }
+
+            #pix-faz-more{
+                margin-bottom: 10px;
+                font-size: 30px;
+                color: #000;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="faz-pix">
+            <img id="boot" src="i_see_red.jpg" alt="red big boots same as the astroboy">
+            <img id="pix-qrcode" src="pix.jpg" alt="b8ae2f9c-6101-478a-aff9-9f7ceebbbf96">
+            <div>
+                <button id="pix-copia" onclick="copyToClipboard()">copiar</button>
+            </div>
+            <div id="pix-faz-more">
+                <b>faz o pix more.</b>
+            </div>
+        </div>
+
+        <script type="text/javascript">
+            function copyToClipboard() {
+                var pix = "b8ae2f9c-6101-478a-aff9-9f7ceebbbf96";
+                var tempInput = document.createElement("input");
+                tempInput.value = pix;
+                document.body.appendChild(tempInput);
+                tempInput.select();
+                document.execCommand("copy");
+                document.body.removeChild(tempInput);
+            }
+        </script>
+    </body>
+</html>
