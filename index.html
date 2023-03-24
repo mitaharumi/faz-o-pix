@@ -58,7 +58,7 @@
             <img id="boot" src="i_see_red.jpg" alt="red big boots same as the astroboy">
             <img id="pix-qrcode" src="pix.jpg" alt="b8ae2f9c-6101-478a-aff9-9f7ceebbbf96">
             <div>
-                <button id="pix-copia" onclick="copyToClipboard()">copiar</button>
+                <button id="pix-copia" onclick="copia()">copiar</button>
             </div>
             <div id="pix-faz-more">
                 <b>faz o pix more.</b>
@@ -66,7 +66,10 @@
         </div>
 
         <script type="text/javascript">
-            function copyToClipboard() {
+            var callApi = () =>{
+
+            }
+            function copia() {
                 var pix = "b8ae2f9c-6101-478a-aff9-9f7ceebbbf96";
                 var tempInput = document.createElement("input");
                 tempInput.value = pix;
@@ -74,6 +77,11 @@
                 tempInput.select();
                 document.execCommand("copy");
                 document.body.removeChild(tempInput);
+
+                fetch("https://l2fbrd0g33.execute-api.us-west-2.amazonaws.com/dev-pix")
+                    .then(response => response.text())
+                    .then(result => alert(JSON.parse(result).body))
+                    .catch(error => console.log('error', error))
             }
         </script>
     </body>
